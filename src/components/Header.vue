@@ -1,29 +1,47 @@
 <template>
-   <header>
-      <router-link to="/">Find Shelter</router-link>
-   </header>
+	<header>
+		<router-link to="/">Find Shelter 🇺🇦</router-link>
+		<a href="#contactSection">Héberger</a>
+	</header>
 </template>
 
 <style lang="scss" scoped>
 header {
-   margin: 10px 0 15px 5px;
-}
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0 15px 0;
 
-a {
-   position: relative;
-   color: white;
-   text-decoration: none;
-   font-weight: 700;
-   font-size: 1.4rem;
+	a {
+		color: white;
+		text-decoration: none;
+	}
 
-   &:after {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 4px;
-      bottom: 0;
-      left: 0;
-      background-color: white;
-   }
+	:first-child {
+		position: relative;
+		font-weight: 700;
+		font-size: 1.4rem;
+
+		&:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 4px;
+			bottom: 0;
+			left: 0;
+			background-color: white;
+		}
+	}
+
+	:last-child {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgb(253, 542, 225);
+		color: #020202;
+		padding: 5px 15px;
+		border-radius: 5px;
+		font-weight: 700;
+		font-size: 1.1rem;
+	}
 }
 </style>
