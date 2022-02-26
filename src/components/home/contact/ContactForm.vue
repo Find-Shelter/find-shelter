@@ -169,14 +169,20 @@
 			</div>
 		</div>
 		<input
+			v-if="this.loading === false"
 			type="submit"
 			value="Envoyer la demande d'accueil"
 			@click="(e) => submitForm(e)"
 		/>
+		<input v-else type="submit" value="Envoi en cours..." />
+		<p v-if="errorMessage">{{ errorMessage }}</p>
+		<p v-if="successMessage" class="success">{{ successMessage }}</p>
 	</form>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 	data() {
 		return {
@@ -216,16 +222,79 @@ export default {
 				value: "",
 				error: null,
 			},
-			errorMessage: {
-				value: "",
-				error: null,
-			},
+			errorMessage: "",
+			successMessage: "",
+			loading: false,
 		};
 	},
 	methods: {
-		submitForm(event) {
+		async submitForm(event) {
+			// prevent form submission
 			event.preventDefault();
-			console.log("submit");
+			// check if there are any errors
+			if (
+				this.firstName.error ||
+				this.lastName.error ||
+				this.address.error ||
+				this.bedCount.error ||
+				this.weekLength.error ||
+				this.languages.error ||
+				this.phone.error ||
+				this.email.error ||
+				this.message.error
+			) {
+				// display error message
+				this.errorMessage =
+					"Veuillez corriger les erreurs avant de soumettre le formulaire.";
+			} else if (
+				// if a value is not filled, then say that it must be filled
+				this.firstName.value === "" ||
+				this.lastName.value === "" ||
+				this.address.value === "" ||
+				this.bedCount.value === "" ||
+				this.weekLength.value === "" ||
+				this.languages.value === "" ||
+				this.phone.value === "" ||
+				this.email.value === ""
+			) {
+				this.errorMessage =
+					"Veuillez remplir tous les champs avant de soumettre le formulaire.";
+			} else {
+				this.loading = true;
+				this.errorMessage = "";
+				// submit form to API
+				await axios
+					.post(process.env.VUE_APP_API_HOST + "/api/contacts/", {
+						firstName: this.firstName.value,
+						lastName: this.lastName.value,
+						address: this.address.value,
+						bedCount: String(this.bedCount.value),
+						weekLength: String(this.weekLength.value),
+						languages: this.languages.value,
+						phone: this.phone.value,
+						email: this.email.value,
+						message: this.message.value,
+					})
+					.then(() => {
+						this.successMessage =
+							"Votre demande d'accueil a bien été envoyée. Vous serez contacté dans les plus brefs délais.";
+						// reset all fields once request is send successfully
+						this.firstName.value = "";
+						this.lastName.value = "";
+						this.address.value = "";
+						this.bedCount.value = "";
+						this.weekLength.value = "";
+						this.languages.value = "";
+						this.phone.value = "";
+						this.email.value = "";
+						this.message.value = "";
+					})
+					.catch(() => {
+						this.errorMessage =
+							"Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer plus tard.";
+					});
+				this.loading = false;
+			}
 		},
 	},
 };
@@ -311,6 +380,17 @@ form {
 		font-size: 1.1rem;
 		margin-bottom: 10px;
 		-webkit-appearance: none;
+
+		+ p {
+			color: red;
+			margin: 0;
+		}
+
+		+ p.success {
+			color: green;
+			font-weight: 600;
+			margin: 0;
+		}
 	}
 }
 </style>
