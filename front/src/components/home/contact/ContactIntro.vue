@@ -9,7 +9,7 @@
 			Vos données ne seront partagées qu'aux associations qui pourront vos
 			mettre en relation avec des personnes réfugiées. Vous pouvez trouver la
 			liste des ces associations
-			<router-link to="/associations">ici</router-link>.
+			<router-link to="/legal">ici</router-link>.
 		</p>
 	</div>
 </template>

@@ -3,54 +3,233 @@
 		<div class="group">
 			<div>
 				<label for="firstName">Prénom</label>
-				<input type="text" name="firstName" id="firstName" />
+				<input
+					type="text"
+					name="firstName"
+					id="firstName"
+					v-model="firstName.value"
+					@input="
+						(val) => {
+							if (/\d/.test(val.target.value)) {
+								this.firstName.error =
+									'Votre prénom ne peut pas contenir de chiffres.';
+							} else this.firstName.error = '';
+						}
+					"
+				/>
+				<p>{{ firstName.error }}</p>
 			</div>
 			<div>
 				<label for="lastName">Nom</label>
-				<input type="text" name="firstName" id="firstName" />
+				<input
+					type="text"
+					name="lastName"
+					id="lastName"
+					v-model="lastName.value"
+					@input="
+						(val) => {
+							if (/\d/.test(val.target.value)) {
+								this.firstName.error =
+									'Votre nom ne peut pas contenir de chiffres.';
+							} else this.firstName.error = '';
+						}
+					"
+				/>
+				<p>{{ lastName.error }}</p>
 			</div>
 		</div>
 		<div class="group">
 			<div>
-				<label for="address">Adresse</label>
-				<input type="text" name="address" id="address" />
+				<label for="address">Adresse (numéro + rue + ville)</label>
+				<input
+					type="text"
+					name="address"
+					id="address"
+					v-model="address.value"
+				/>
+				<p>{{ address.error }}</p>
 			</div>
 		</div>
 		<div class="group">
 			<div>
 				<label for="bedCount">Nombre de lits</label>
-				<input type="number" name="bedCount" id="bedCount" />
+				<input
+					type="number"
+					name="bedCount"
+					id="bedCount"
+					v-model="bedCount.value"
+					@input="
+						(val) => {
+							// create error message if user inputs something that is not a number or less than 1 room
+							if (isNaN(val.target.value) || val.target.value < 1) {
+								this.bedCount.error =
+									'Veuillez entrer un nombre de lits valide.';
+							} else this.bedCount.error = '';
+						}
+					"
+				/>
+				<p>{{ bedCount.error }}</p>
 			</div>
 			<div>
 				<label for="weekLength">Durée (en semaines)</label>
-				<input type="number" name="weekLength" id="weekLength" />
+				<input
+					type="number"
+					name="weekLength"
+					id="weekLength"
+					v-model="weekLength.value"
+					@input="
+						(val) => {
+							// create error message if user inputs something that is not a number or less than 1 week
+							if (isNaN(val.target.value) || val.target.value < 1) {
+								this.weekLength.error =
+									'Veuillez entrer une durée valide.';
+							} else this.weekLength.error = '';
+						}
+					"
+				/>
+				<p>{{ weekLength.error }}</p>
 			</div>
 		</div>
 		<div class="group">
 			<div>
 				<label for="languages">Langues parlées</label>
-				<input type="text" name="languages" id="languages" />
+				<input
+					type="text"
+					name="languages"
+					id="languages"
+					v-model="languages.value"
+				/>
+				<p>{{ languages.error }}</p>
 			</div>
 			<div>
 				<label for="phone">Téléphone</label>
-				<input type="phone" name="phone" id="phone" />
+				<input
+					type="phone"
+					name="phone"
+					id="phone"
+					v-model="phone.value"
+					@input="
+						(val) => {
+							// create error message if user input is not a phone number (handling all formats)
+							if (
+								!/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(
+									val.target.value
+								)
+							) {
+								this.phone.error =
+									'Veuillez entrer un numéro de téléphone valide.';
+							} else this.phone.error = '';
+						}
+					"
+				/>
+				<p>{{ phone.error }}</p>
 			</div>
 		</div>
 		<div class="group">
 			<div>
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" />
+				<input
+					type="email"
+					name="email"
+					id="email"
+					v-model="email.value"
+					@input="
+						(val) => {
+							// create error message if user input is not an email
+							if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.target.value)) {
+								this.email.error = 'Veuillez entrer un email valide.';
+							} else this.email.error = '';
+						}
+					"
+				/>
+				<p>{{ email.error }}</p>
 			</div>
 		</div>
 		<div class="group">
 			<div>
 				<label for="message">Message (facultatif)</label>
-				<textarea type="message" name="message" id="message" />
+				<textarea
+					type="message"
+					name="message"
+					id="message"
+					v-model="message.value"
+					@input="
+						(val) => {
+							// prevent script injection
+							val.target.value = val.target.value.replace(/[<>]/g, '');
+							// create error is message is longer than 2000 characters
+							if (val.target.value.length > 2000) {
+								this.message.error =
+									'Votre message doit faire moins de 2000 caractères.';
+							} else this.message.error = '';
+						}
+					"
+				/>
+				<p>{{ message.error }}</p>
 			</div>
 		</div>
-		<input type="submit" value="Envoyer la demande d'accueil" />
+		<input
+			type="submit"
+			value="Envoyer la demande d'accueil"
+			@click="(e) => submitForm(e)"
+		/>
 	</form>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			firstName: {
+				value: "",
+				error: null,
+			},
+			lastName: {
+				value: "",
+				error: null,
+			},
+			address: {
+				value: "",
+				error: null,
+			},
+			bedCount: {
+				value: "",
+				error: null,
+			},
+			weekLength: {
+				value: "",
+				error: null,
+			},
+			languages: {
+				value: "",
+				error: null,
+			},
+			phone: {
+				value: "",
+				error: null,
+			},
+			email: {
+				value: "",
+				error: null,
+			},
+			message: {
+				value: "",
+				error: null,
+			},
+			errorMessage: {
+				value: "",
+				error: null,
+			},
+		};
+	},
+	methods: {
+		submitForm(event) {
+			event.preventDefault();
+			console.log("submit");
+		},
+	},
+};
+</script>
 
 <style lang="scss" scoped>
 form {
@@ -85,6 +264,7 @@ form {
 			padding: 0 15px;
 			font-size: 1.1rem;
 			margin: 3px 0;
+			overflow: hidden;
 
 			@media (max-width: 600px) {
 				padding: 0 5px;
@@ -104,6 +284,13 @@ form {
 				&:focus {
 					outline: none;
 					border: 2px solid rgb(57, 41, 143);
+				}
+
+				+ p {
+					margin: 0;
+					color: red;
+					font-size: 0.9rem;
+					width: 100% !important;
 				}
 
 				@media (max-width: 600px) {
