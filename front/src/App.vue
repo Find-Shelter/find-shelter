@@ -28,6 +28,7 @@ html {
 	margin: 0;
 	padding: 0;
 	font-family: "Poppins", sans-serif;
+	scroll-behavior: smooth;
 }
 
 #app {
