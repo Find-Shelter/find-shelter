@@ -27,7 +27,7 @@
 		width: 100%;
 		max-width: 250px;
 		margin: 5px auto;
-		padding: 20px 10px;
+		padding: 25px 10px;
 		border-radius: 20px;
 		transition: all 0.2s ease;
 
@@ -39,7 +39,7 @@
 
 		i {
 			font-size: 1.6rem;
-			margin: 15px auto;
+			margin: 10px auto 15px auto;
 			color: rgb(57, 41, 143);
 		}
 
@@ -54,6 +54,7 @@
 		}
 
 		@media (max-width: 600px) {
+			margin: 10px 5px;
 			max-width: none;
 		}
 	}

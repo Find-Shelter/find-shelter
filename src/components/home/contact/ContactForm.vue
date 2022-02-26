@@ -122,7 +122,7 @@ form {
 		padding: 20px 40px;
 		border-radius: 7px;
 		font-size: 1.1rem;
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 		-webkit-appearance: none;
 	}
 }

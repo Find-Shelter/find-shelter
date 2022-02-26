@@ -33,7 +33,7 @@ export default {
 #contactSection {
 	background-color: rgb(253, 542, 225);
 	border-radius: 20px;
-	padding: 5px 10px 10px 10px;
+	padding: 5px 10px 30px 10px;
 	margin: auto;
 	width: calc(100% - 20px);
 	text-align: center;
