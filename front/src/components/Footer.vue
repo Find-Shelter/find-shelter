@@ -1,8 +1,10 @@
 <template>
 	<footer>
 		<p>
-			Ce projet est <a href="" target="_blank">Open Source</a>. N'hésitez pas
-			à contribuer ou
+			Ce projet est
+			<a href="https://github.com/fabrahaingo/find-shelter" target="_blank"
+				>Open Source</a
+			>. N'hésitez pas à contribuer ou
 			<a href="mailto:suggestion@find-shelter.com">
 				suggérer des améliorations
 			</a>
