@@ -19,8 +19,8 @@ exports.create = async (req, res) => {
             message: "Please fill out the missing field(s)"
          })
       } else if (
-         !validator.isAlpha(req.body.firstName) ||
-         !validator.isAlpha(req.body.lastName) ||
+         !validator.isAlpha(req.body.firstName, ['fr-FR'], { ignore: "' -" }) ||
+         !validator.isAlpha(req.body.lastName, ['fr-FR'], { ignore: "' -" }) ||
          !validator.isNumeric(req.body.bedCount) ||
          !validator.isNumeric(req.body.weekLength) ||
          !validator.isMobilePhone(req.body.phone) ||
