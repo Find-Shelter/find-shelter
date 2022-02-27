@@ -107,7 +107,7 @@ Those informations will be passed on to associations and organizations that are 
    ```
 4. In your `backend` repo, create and edit a new file called `.env` with the following content:
     ```.env
-    DB_HOST=mongodb://127.0.0.1:27017/find-shelter
+    DB_URL=mongodb://127.0.0.1:27017/find-shelter
     CORS_ORIGIN=http://localhost:8080
     ```
 5. In your `frontend` repo, create and edit a new file called `.env.local` with the following content:
