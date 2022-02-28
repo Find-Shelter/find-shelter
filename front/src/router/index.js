@@ -12,6 +12,11 @@ const routes = [
     name: 'Legal',
     component: () => import('../views/Legal.vue'),
   },
+  {
+    path: '/map',
+    name: 'Map',
+    component: () => import('../views/Map.vue'),
+  },
 ]
 
 const router = createRouter({
