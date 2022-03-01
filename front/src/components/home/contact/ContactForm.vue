@@ -2,7 +2,7 @@
   <form>
     <div class="group">
       <div>
-        <label for="firstName">Prénom</label>
+        <label for="firstName">{{ $t("first_name") }}</label>
         <input
           type="text"
           name="firstName"
@@ -20,7 +20,7 @@
         <p>{{ firstName.error }}</p>
       </div>
       <div>
-        <label for="lastName">Nom</label>
+        <label for="lastName">{{ $t("last_name") }}</label>
         <input
           type="text"
           name="lastName"
@@ -40,7 +40,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="address">Adresse (numéro + rue + ville)</label>
+        <label for="address">{{ $t("address") }}</label>
         <input
           type="text"
           name="address"
@@ -52,7 +52,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="bedCount">Nombre de lits</label>
+        <label for="bedCount">{{ $t("beds") }}</label>
         <input
           type="number"
           name="bedCount"
@@ -71,7 +71,7 @@
         <p>{{ bedCount.error }}</p>
       </div>
       <div>
-        <label for="weekLength">Durée (en semaines)</label>
+        <label for="weekLength">{{ $t("length") }}</label>
         <input
           type="number"
           name="weekLength"
@@ -91,7 +91,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="languages">Langues parlées</label>
+        <label for="languages">{{ $t("languages") }}</label>
         <input
           type="text"
           name="languages"
@@ -101,7 +101,7 @@
         <p>{{ languages.error }}</p>
       </div>
       <div>
-        <label for="phone">Téléphone</label>
+        <label for="phone">{{ $t("phone") }}</label>
         <input
           type="phone"
           name="phone"
@@ -126,7 +126,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="email">Email</label>
+        <label for="email">{{ $t("email") }}</label>
         <input
           type="email"
           name="email"
@@ -146,7 +146,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="message">Message (facultatif)</label>
+        <label for="message">{{ $t("message") }}</label>
         <textarea
           type="message"
           name="message"

@@ -1,11 +1,19 @@
 {
+    "nav": {
+        "host": "Housing"
+    },
+    "footer": {
+        "main_1": "This project is",
+        "main_2": "You can contribute or",
+        "link": "suggest improvments."
+    },
     "headline": "Housing for Ukrainians in France",
-    "border_crossing": "In this very moment, thousands of Ukrainians are crossing their borders and don't know where to go next.\\nIf you wish to help, the best way is to offer them <b>a roof to stay</b>.",
-    "welcome": "If you can host people at your place, do not hesitate to let us know by filling the form below",
-    "ninety_days": "Ukrainian citizens can stay in the Schengen up to 90 days.\\nAfter that they need a residence permit in France.",
-    "data_protection": "Your data will only be used to contact you and will be transmitted to the NGOs that are in a position to put you in touch with Ukrainians looking for a place to stay.",
+    "border_crossing": "In this very moment, thousands of Ukrainians are crossing their borders and don't know where to go next.<br>If you wish to help, the best way is to offer them <b>a roof to stay</b> 🏡.",
+    "welcome": "If you can host people at your place, do not hesitate to let us know by filling the form below 👇",
+    "ninety_days": "⚠️ Ukrainian citizens can stay in the Schengen up to 90 days.<br>After that they need a residence permit in France.",
+    "data_protection": "🗂 Your data will only be used to contact you and will be transmitted to the NGOs that are in a position to put you in touch with Ukrainians looking for a place to stay.",
     "offer_housing": "Offer a place to stay",
-    "rooms": "Fill this form to offer a room (or more) to the refugees in need.",
+    "rooms": "Fill this form to offer a room (or more) to the refugees in need 🤝.",
     "data_protection_form": "Your data will only be used to contact you and will be transmitted to the NGOs that are in a position to put you in touch with Ukrainians looking for a place to stay. You will find the list of NGOs here",
     "first_name": "First name",
     "last_name": "Last name",
