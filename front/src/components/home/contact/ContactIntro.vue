@@ -6,7 +6,7 @@
       réfugiés qui en ont besoin. 🤝
     </p>
     <p>
-      Vos données ne seront partagées qu'aux associations qui pourront vos
+      Vos données ne seront partagées qu'aux associations qui pourront vous
       mettre en relation avec des personnes réfugiées. Vous pouvez trouver la
       liste de ces associations
       <router-link to="/legal">ici</router-link>.
