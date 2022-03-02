@@ -9,6 +9,8 @@ import maplibregl from "maplibre-gl";
 import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
 import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
 import "maplibre-gl/dist/maplibre-gl.css";
+import axios from "axios";
+
 export default {
     data() {
         return {
@@ -70,6 +72,7 @@ export default {
 
                 this.map.on("load", async function () {
                     let position = {
+                        // 🇺🇦 Defaults to coordinates of Kyiv
                         coords: { longitude: 30.5234, latitude: 50.4501 },
                     };
                     try {
@@ -92,10 +95,12 @@ export default {
                     forwardGeocode: async (config) => {
                         const features = [];
                         try {
-                            const request = `https://nominatim.openstreetmap.org/search?q=${config.query}\
-                            &format=geojson&polygon_geojson=1&addressdetails=1`;
-                            const response = await fetch(request);
-                            const geojson = await response.json();
+                            const request = `${process.env.VUE_APP_API_HOST}/api/maplibre`;
+                            const geojson = (
+                                await axios.get(request, {
+                                    params: { query: config.query },
+                                })
+                            ).data;
                             for (const feature of geojson.features) {
                                 const center = [
                                     feature.bbox[0] +
@@ -132,6 +137,7 @@ export default {
                 const geocoder = new MaplibreGeocoder(geocoder_api, {
                     maplibregl: maplibregl,
                     flyTo: { duration: 0 },
+                    showResultsWhileTyping: true,
                 });
                 this.map.addControl(geocoder);
 
@@ -159,7 +165,7 @@ export default {
 
 <style scoped>
 .map-holder {
-    width: 65%;
+    width: 100%;
 }
 #map {
     height: 70vh;

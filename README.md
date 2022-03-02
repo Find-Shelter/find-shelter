@@ -73,7 +73,7 @@ These information will be passed on to humanitarian organizations that are in co
 
 <div style="display: flex; align-items: center;">
     <!-- add the logo of vuejs from their website -->
-    <img src="https://vuejs.org/images/logo.png" style="height: 40px; margin-right: 10px;" />
+    <img src="https://vuejs.org/logo.svg" style="height: 40px; margin-right: 10px;" />
     <p>The front-end is built with <a href="https://vuejs.org/">VueJS</a> and is hosted on <a href="https://vercel.com/">Vercel</a> </p>
 </div>
 
@@ -82,7 +82,19 @@ These information will be passed on to humanitarian organizations that are in co
     <img src="https://nodejs.org/static/images/logo.svg" style="height: 40px; margin-right: 10px;" />
     <p>The back-end is built with <a href="https://nodejs.org/en/">NodeJS</a> and is hosted on <a href="https://www.heroku.com">Heroku</a></p>
 </div>
-<br />
+
+<div style="display: flex; align-items: center;">
+    <!-- add the logo of maplibre from their website -->
+    <img src="https://maplibre.org/img/maplibre-logo.svg" style="height: 40px; margin-right: 10px;" />
+    <p>The Map library used is <a href="https://maplibre.org">MapLibre GL JS</a></p>
+</div>
+
+<div style="display: flex; align-items: center;">
+    <!-- add the logo of openstreetmap from their website -->
+    <img src="https://www.openstreetmap.org/assets/osm_logo-d4979005d8a03d67bbf051b4e7e6ef1b26c6a34a5cd1b65908e2947c360ca391.svg" style="height: 40px; margin-right: 10px;" />
+    <p>The MapLibre GL JS tiles and geocoding functionality are built with <a href="https://openstreetmap.org">OpenStreetMap</a></p>
+</div>
+
 
 ## Getting Started
 
@@ -92,9 +104,7 @@ These information will be passed on to humanitarian organizations that are in co
 
 2. You will also need NodeJS installed on your computer. [Install NodeJS](https://nodejs.org/en/download/).
 
-3. You will need a Mapbox API access token. [Sign up for a free Mapbox API access token](https://docs.mapbox.com/help/getting-started/access-tokens).
-
-4. You finally need to clone this repo with git. [Install it](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+3. You finally need to clone this repo with git. [Install it](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ### Installation
 
@@ -118,7 +128,6 @@ These information will be passed on to humanitarian organizations that are in co
 5. In your `frontend` repo, create and edit a new file called `.env.local` with the following content:
     ```.env.local
     VUE_APP_API_HOST=http://localhost:3000
-    VUE_APP_MAP_ACCESS_TOKEN=<YOUR-MAPBOX-API-ACCESS-TOKEN-HERE>
     ```
 6. Open a separate terminal and enter this command:
    ```sh
