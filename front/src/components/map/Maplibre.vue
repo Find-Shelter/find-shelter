@@ -14,7 +14,6 @@ import axios from "axios";
 export default {
     data() {
         return {
-            access_token: process.env.VUE_APP_MAP_ACCESS_TOKEN,
             map: {},
         };
     },
@@ -30,7 +29,6 @@ export default {
         async createMap() {
             let self = this;
             try {
-                maplibregl.accessToken = this.access_token;
                 this.map = new maplibregl.Map({
                     container: "map",
                     style: {
