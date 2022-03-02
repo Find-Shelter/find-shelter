@@ -47,7 +47,6 @@
 
 <script>
 import Mapbox from "../components/map/Mapbox.vue";
-import axios from "axios";
 
 export default {
     components: { Mapbox },
@@ -63,7 +62,7 @@ export default {
         async getLocation() {
             try {
                 this.loading = true;
-                const response = await axios.get(
+                const response = await fetch(
                     `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.center[0]},${this.center[1]}.json?access_token=${this.access_token}`
                 );
                 this.loading = false;

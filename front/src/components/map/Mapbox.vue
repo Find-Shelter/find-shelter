@@ -5,11 +5,10 @@
 </template>
 
 <script>
-import mapboxgl from "mapbox-gl";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import "mapbox-gl/dist/mapbox-gl.css";
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-
+import maplibregl from "maplibre-gl";
+import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
+import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 export default {
     data() {
         return {
@@ -29,12 +28,44 @@ export default {
         async createMap() {
             let self = this;
             try {
-                mapboxgl.accessToken = this.access_token;
-                this.map = new mapboxgl.Map({
+                maplibregl.accessToken = this.access_token;
+                this.map = new maplibregl.Map({
                     container: "map",
-                    style: "mapbox://styles/mapbox/streets-v11",
+                    style: {
+                        version: 8,
+                        name: "Blank",
+                        center: [0, 0],
+                        zoom: 0,
+                        sources: {
+                            "raster-tiles": {
+                                type: "raster",
+                                tiles: [
+                                    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                                ],
+                                tileSize: 256,
+                                minzoom: 0,
+                                maxzoom: 19,
+                            },
+                        },
+                        layers: [
+                            {
+                                id: "background",
+                                type: "background",
+                                paint: {
+                                    "background-color": "#e0dfdf",
+                                },
+                            },
+                            {
+                                id: "simple-tiles",
+                                type: "raster",
+                                source: "raster-tiles",
+                            },
+                        ],
+                        id: "blank",
+                    },
                     center: this.center,
                     zoom: 11,
+                    antialias: true,
                 });
 
                 this.map.on("load", async function () {
@@ -52,33 +83,68 @@ export default {
                             position.coords.longitude,
                             position.coords.latitude,
                         ],
-                        zoom: 15,
+                        zoom: 12,
                         bearing: 0,
                     });
                 });
 
-                let geocoder = new MapboxGeocoder({
-                    accessToken: this.access_token,
-                    mapboxgl: mapboxgl,
-                    marker: false,
-                    flyTo: {
-                        zoom: 15,
-                        bearing: 0,
-                        speed: 10,
-                        curve: 10,
-                        easing: (t) => t,
-                        essential: false,
+                const geocoder_api = {
+                    forwardGeocode: async (config) => {
+                        const features = [];
+                        try {
+                            const request = `https://nominatim.openstreetmap.org/search?q=${config.query}\
+                            &format=geojson&polygon_geojson=1&addressdetails=1`;
+                            const response = await fetch(request);
+                            const geojson = await response.json();
+                            for (const feature of geojson.features) {
+                                const center = [
+                                    feature.bbox[0] +
+                                        (feature.bbox[2] - feature.bbox[0]) / 2,
+                                    feature.bbox[1] +
+                                        (feature.bbox[3] - feature.bbox[1]) / 2,
+                                ];
+                                const point = {
+                                    type: "Feature",
+                                    geometry: {
+                                        type: "Point",
+                                        coordinates: center,
+                                    },
+                                    place_name: feature.properties.display_name,
+                                    properties: feature.properties,
+                                    text: feature.properties.display_name,
+                                    place_type: ["place"],
+                                    center: center,
+                                };
+                                features.push(point);
+                            }
+                        } catch (e) {
+                            console.error(
+                                `Failed to forwardGeocode with error: ${e}`
+                            );
+                        }
+
+                        return {
+                            features: features,
+                        };
                     },
+                };
+
+                const geocoder = new MaplibreGeocoder(geocoder_api, {
+                    maplibregl: maplibregl,
+                    flyTo: { duration: 0 },
                 });
                 this.map.addControl(geocoder);
+
                 geocoder.on("result", (e) => {
-                    const marker = new mapboxgl.Marker({
+                    const marker = new maplibregl.Marker({
                         draggable: true,
-                        color: "#D80739",
+                        color: "red",
                     })
                         .setLngLat(e.result.center)
                         .addTo(this.map);
                     this.center = e.result.center;
+                    const markerEl = marker.getElement();
+                    markerEl.style.cursor = "pointer";
                     marker.on("dragend", (e) => {
                         this.center = Object.values(e.target.getLngLat());
                     });
