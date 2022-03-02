@@ -61,7 +61,6 @@ This war led a massive amount of people to flee their country.
 
 Many of them are coming to France to seek shelter.
 
-<br />
 Many French people have said on the radio, television and newspapers that they wanted to help and host Ukrainian refugees. The only problem is that ***their contact information is not gathered yet***.
 
 ### Goal
