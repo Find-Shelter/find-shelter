@@ -137,7 +137,7 @@ export default {
                 const geocoder = new MaplibreGeocoder(geocoder_api, {
                     maplibregl: maplibregl,
                     flyTo: { duration: 0 },
-                    showResultsWhileTyping: true,
+                    showResultsWhileTyping: false, // Autocomplete search not allowed by OpenStreetMap usage policy
                 });
                 this.map.addControl(geocoder);
 
