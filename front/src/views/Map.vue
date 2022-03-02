@@ -58,7 +58,6 @@ import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 export default {
     data() {
         let center = [0, 0];
-
         return {
             loading: false,
             location: "",
@@ -71,7 +70,13 @@ export default {
         this.createMap();
     },
     methods: {
+        async getCurrentPosition() {
+            return new Promise((res, rej) =>
+                navigator.geolocation.getCurrentPosition(res, rej)
+            );
+        },
         async createMap() {
+            let self = this;
             try {
                 mapboxgl.accessToken = this.access_token;
                 this.map = new mapboxgl.Map({
@@ -81,15 +86,23 @@ export default {
                     zoom: 11,
                 });
 
-                this.map.on("load", function () {
-                    this.flyTo({
-                        center: this.center,
+                this.map.on("load", async function () {
+                    let position = {
+                        coords: { longitude: 30.5234, latitude: 50.4501 },
+                    };
+                    try {
+                        position = await self.getCurrentPosition();
+                    } catch (e) {
+                        console.error(e);
+                    }
+
+                    this.jumpTo({
+                        center: [
+                            position.coords.longitude,
+                            position.coords.latitude,
+                        ],
                         zoom: 15,
                         bearing: 0,
-                        speed: 10,
-                        curve: 10,
-                        easing: (t) => t,
-                        essential: false,
                     });
                 });
 

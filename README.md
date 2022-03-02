@@ -8,8 +8,8 @@
   <h1 align="center">Find-Shelter</h3>
 
   <p align="center">
-    This is an Open Source website aiming to gather contact informations about french people wanting
-    to help ukrainians seeking shelter outside their country.
+    This is an Open Source website aiming to gather contact information of French people who want 
+    to help Ukrainians seeking shelter outside their country.
     <br />
     <a href="https://github.com/fabrahaingo/find-shelter/issues">🐛 Report Bug</a>
     ·
@@ -55,16 +55,20 @@
 
 ### Context and Problem
 
-A war started between Russia and Ukraine on the 20th of February 2022.<br />
-This war led a massive amount of people to flee their country.<br />
-Many of them are coming to France to seek shelter.<br />
+A war started between Russia and Ukraine on the 20th of February 2022.
+
+This war led a massive amount of people to flee their country.
+
+Many of them are coming to France to seek shelter.
+
 <br />
-Many french people have said on the radio, television and newspapers that they wanted to help and host ukrainian refugees. The only problem is that ***their contact information is not gathered yet***.<br />
+Many French people have said on the radio, television and newspapers that they wanted to help and host Ukrainian refugees. The only problem is that ***their contact information is not gathered yet***.
 
 ### Goal
 
-The goal of this project is to ***gather contact informations about french people*** (and limited to them for now) wanting to help ukrainians seeking shelter outside their country.<br />
-Those informations will be passed on to associations and organizations that are in contact with refugees.<br />
+The goal of this project is to ***gather contact information of French people*** (and limited to them for now) who want to help Ukrainians seeking shelter outside their country.
+
+These information will be passed on to humanitarian organizations that are in contact with the Ukrainian refugees.
 
 ### Built With
 
@@ -89,7 +93,9 @@ Those informations will be passed on to associations and organizations that are 
 
 2. You will also need NodeJS installed on your computer. [Install NodeJS](https://nodejs.org/en/download/).
 
-3. You finally need to clone this repo with git. [Install it](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+3. You will need a Mapbox API access token. [Sign up for a free Mapbox API access token](https://docs.mapbox.com/help/getting-started/access-tokens).
+
+4. You finally need to clone this repo with git. [Install it](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ### Installation
 
@@ -103,7 +109,7 @@ Those informations will be passed on to associations and organizations that are 
    ```
 3. Once cloned, you need to install the dependencies with:
    ```sh
-   cd back && npm install && cd ../front && npm install
+   cd back && npm install && cd ../front && npm install --legacy-peer-deps
    ```
 4. In your `backend` repo, create and edit a new file called `.env` with the following content:
     ```.env
@@ -113,6 +119,7 @@ Those informations will be passed on to associations and organizations that are 
 5. In your `frontend` repo, create and edit a new file called `.env.local` with the following content:
     ```.env.local
     VUE_APP_API_HOST=http://localhost:3000
+    VUE_APP_MAP_ACCESS_TOKEN=<YOUR-MAPBOX-API-ACCESS-TOKEN-HERE>
     ```
 6. Open a separate terminal and enter this command:
    ```sh
