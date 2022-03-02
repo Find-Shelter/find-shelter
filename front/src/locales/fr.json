@@ -15,17 +15,43 @@
   "offer_housing": "Proposez un hébergement",
   "rooms": "Remplissez ce formulaire pour proposer une (ou plusieurs) chambres aux réfugiés qui en ont besoin 🤝.",
   "data_protection_form": "Vos données ne seront partagées qu'aux associations qui pourront vous mettre en relation avec des personnes réfugiées. Vous pouvez trouver la liste des ces associations",
-  "first_name": "Prénom",
-  "last_name": "Nom",
-  "address": "Adresse (numéro + rue + ville)",
-  "beds": "Nombre de lits",
-  "length": "Durée (en semaines)",
-  "languages": "Langues parlées",
-  "phone": "Téléphone",
-  "email": "Email",
-  "message": "Message (facultatif)",
-  "send": "Envoyer la demande d'accueil",
-  "open_source": "Ce projet est Open Source",
-  "contributions": "N'hésitez pas à contribuer ou suggérer des améliorations",
+  "first_name": {
+    "label": "Prénom",
+    "error": "Votre prénom ne peut pas contenir de chiffres."
+  },
+  "last_name": {
+    "label": "Nom",
+    "error": "Votre nom ne peut pas contenir de chiffres."
+  },
+  "address": {
+    "label": "Adresse (numéro + rue + ville)",
+    "error": ""
+  },
+  "beds": {
+    "label": "Nombre de lits",
+    "error": "Veuillez entrer un nombre de lits valide."
+  },
+  "length": {
+    "label": "Durée (en semaines)",
+    "error": "Veuillez entrer une durée valide."
+  },
+  "languages": {
+    "label": "Langues parlées",
+    "error": ""
+  },
+  "phone": {
+    "label": "Téléphone",
+    "error": "Veuillez entrer un numéro de téléphone valide."
+  },
+  "email": {
+    "label": "Email",
+    "error": "Veuillez entrer un email valide."
+  },
+  "message": {
+    "label": "Message (facultatif)",
+    "error": "Votre message doit faire moins de 2000 caractères."
+  },
+  "send": "Envoyer la proposition d'accueil",
+  "sending": "Envoi en cours...",
   "housing": "Héberger"
 }
