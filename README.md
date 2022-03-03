@@ -46,7 +46,6 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-
 ## About The Project
 
 <div align=center>
@@ -71,7 +70,7 @@ Those informations will be passed on to associations and organizations that are 
 <div style="display: flex; align-items: center;">
     <!-- add the logo of vuejs from their website -->
     <img src="https://vuejs.org/images/logo.png" style="height: 40px; margin-right: 10px;" />
-    <p>The front-end is built with <a href="https://vuejs.org/">VueJS</a> and is hosted on <a href="https://vercel.com/">Vercel</a> </p>
+    <p>The front-end is built with <a href="https://vuejs.org/">VueJS</a> and is hosted on <a href="https://netlify.com/">Netlify</a> </p>
 </div>
 
 <div style="display: flex; align-items: center;">
@@ -94,48 +93,62 @@ Those informations will be passed on to associations and organizations that are 
 ### Installation
 
 1. Open your terminal and enter this command:
+
    ```sh
    cd ~/Desktop
    ```
+
 2. Clone this repo with:
+
    ```sh
-   git clone https://github.com/fabrahaingo/find-shelter
+   git clone https://github.com/Find-shelter/find-shelter
    ```
+
 3. Once cloned, you need to install the dependencies with:
+
    ```sh
    cd back && npm install && cd ../front && npm install
    ```
-4. In your `backend` repo, create and edit a new file called `.env` with the following content:
+
+4. In your `backend` repo, create and edit a new file called `.env` with the following content (you can copy the existing `.env.dist`, rename it to `.env` and edit the variables inside):
+
     ```.env
     DB_URL=mongodb://127.0.0.1:27017/find-shelter
     CORS_ORIGIN=http://localhost:8080
     ```
-5. In your `frontend` repo, create and edit a new file called `.env.local` with the following content:
+
+5. [OPTIONAL]: If you don't already have a mongodb running for the back-end: n your `backend` repo, execute the following command:
+
+    ```sh
+    docker-compose up -d
+    ```
+
+6. In your `frontend` repo, create and edit a new file called `.env.local` with the following content (you can copy the existing `.env.dist`, rename it to `.env` and edit the variables inside):
+
     ```.env.local
     VUE_APP_API_HOST=http://localhost:3000
     ```
-6. Open a separate terminal and enter this command:
+
+7. Open a separate terminal and enter this command:
+
    ```sh
    cd ~/Desktop/find-shelter/back && npm start
    ```
 
 <!-- USAGE EXAMPLES -->
-
 ## Usage
 
 The use of this website is simple:
 
-1. Once you followed the previous steps, you will be able to access the website by going to: http://localhost:8080
+1. Once you followed the previous steps, you will be able to access the website by going to: <http://localhost:8080>
 2. You'll be able to see the exact same things as [the website](https://www.find-shelter.com).
 
 <!-- ROADMAP -->
-
 ## Roadmap
 
 See the [open issues](https://github.com/fabrahaingo/find-shelter) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -147,13 +160,11 @@ Contributions are what make the open source community such an amazing place to l
 5. Open a Pull Request
 
 <!-- LICENSE -->
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
-
 ## Contact
 
 Find-Shelter: [contact@find-shelter.com](mailto:contact@find-shelter.com)<br />
@@ -177,8 +188,8 @@ For any suggestions: [suggestion@find-shelter.com](mailto:suggestion@find-shelte
 
 ## Contributors
 
-<a href="https://github.com/fabrahaingo/find-shelter/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=fabrahaingo/find-shelter" />
+<a href="https://github.com/Find-shelter/find-shelter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Find-shelter/find-shelter" />
 </a>
 
 Made with [contributors-img](https://contrib.rocks).
