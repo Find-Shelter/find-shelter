@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  mongodb:
+    image : mongo
+    environment:
+      - MONGO_INITDB_DATABASE=find-shelter
+    container_name: mongodb
+    volumes:
+    - ./database:/data/db
+    ports:
+    - 27017:27017
+    restart: unless-stopped
