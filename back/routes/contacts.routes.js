@@ -3,6 +3,7 @@ module.exports = app => {
    var router = require("express").Router();
 
    router.post("/", contact.create);
+   router.get("/counter", contact.counter)
 
    app.use('/api/contacts', router);
 };
