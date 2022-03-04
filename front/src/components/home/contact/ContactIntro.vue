@@ -1,14 +1,9 @@
 <template>
   <div id="intro_text">
-    <h1>Proposez un hébergement</h1>
+    <h1>{{ $t("offer_housing") }}</h1>
+    <p v-html="$t('rooms')" />
     <p>
-      Remplissez ce formulaire pour proposer une (ou plusieurs) chambres aux
-      réfugiés qui en ont besoin. 🤝
-    </p>
-    <p>
-      Vos données ne seront partagées qu'aux associations qui pourront vous
-      mettre en relation avec des personnes réfugiées. Vous pouvez trouver la
-      liste de ces associations
+      {{ $t("data_protection_form") }}
       <router-link to="/legal">ici</router-link>.
     </p>
   </div>

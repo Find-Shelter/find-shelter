@@ -2,37 +2,33 @@
   <form>
     <div class="group">
       <div>
-        <label for="firstName">Prénom</label>
+        <label for="firstName">{{ $t("first_name.label") }}</label>
         <input
           type="text"
           name="firstName"
           id="firstName"
           v-model="firstName.value"
           @input="
-            (val) => {
-              if (/\d/.test(val.target.value)) {
-                this.firstName.error =
-                  'Votre prénom ne peut pas contenir de chiffres.';
-              } else this.firstName.error = '';
-            }
+            (val) =>
+              (this.firstName.error = /\d/.test(val.target.value)
+                ? $t('first_name.error')
+                : '')
           "
         />
         <p>{{ firstName.error }}</p>
       </div>
       <div>
-        <label for="lastName">Nom</label>
+        <label for="lastName">{{ $t("last_name.label") }}</label>
         <input
           type="text"
           name="lastName"
           id="lastName"
           v-model="lastName.value"
           @input="
-            (val) => {
-              if (/\d/.test(val.target.value)) {
-                this.firstName.error =
-                  'Votre nom ne peut pas contenir de chiffres.';
-              } else this.firstName.error = '';
-            }
+            (val) =>
+              (this.lastName.error = /\d/.test(val.target.value)
+                ? $t('last_name.error')
+                : '')
           "
         />
         <p>{{ lastName.error }}</p>
@@ -40,7 +36,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="address">Adresse (numéro + rue + ville)</label>
+        <label for="address">{{ $t("address.label") }}</label>
         <input
           type="text"
           name="address"
@@ -52,38 +48,35 @@
     </div>
     <div class="group">
       <div>
-        <label for="bedCount">Nombre de lits</label>
+        <label for="bedCount">{{ $t("beds.label") }}</label>
         <input
           type="number"
           name="bedCount"
           id="bedCount"
           v-model="bedCount.value"
           @input="
-            (val) => {
-              // create error message if user inputs something that is not a number or less than 1 room
-              if (isNaN(val.target.value) || val.target.value < 1) {
-                this.bedCount.error =
-                  'Veuillez entrer un nombre de lits valide.';
-              } else this.bedCount.error = '';
-            }
+            (val) =>
+              (this.bedCount.error =
+                isNaN(val.target.value) || val.target.value < 1
+                  ? $t('beds.error')
+                  : '')
           "
         />
         <p>{{ bedCount.error }}</p>
       </div>
       <div>
-        <label for="weekLength">Durée (en semaines)</label>
+        <label for="weekLength">{{ $t("length.label") }}</label>
         <input
           type="number"
           name="weekLength"
           id="weekLength"
           v-model="weekLength.value"
           @input="
-            (val) => {
-              // create error message if user inputs something that is not a number or less than 1 week
-              if (isNaN(val.target.value) || val.target.value < 1) {
-                this.weekLength.error = 'Veuillez entrer une durée valide.';
-              } else this.weekLength.error = '';
-            }
+            (val) =>
+              (this.weekLength.error =
+                isNaN(val.target.value) || val.target.value < 1
+                  ? $t('length.error')
+                  : '')
           "
         />
         <p>{{ weekLength.error }}</p>
@@ -91,7 +84,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="languages">Langues parlées</label>
+        <label for="languages">{{ $t("languages.label") }}</label>
         <input
           type="text"
           name="languages"
@@ -101,24 +94,20 @@
         <p>{{ languages.error }}</p>
       </div>
       <div>
-        <label for="phone">Téléphone</label>
+        <label for="phone">{{ $t("phone.label") }}</label>
         <input
           type="phone"
           name="phone"
           id="phone"
           v-model="phone.value"
           @input="
-            (val) => {
-              // create error message if user input is not a phone number (handling all formats)
-              if (
+            (val) =>
+              (this.phone.error =
                 !/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(
                   val.target.value
                 )
-              ) {
-                this.phone.error =
-                  'Veuillez entrer un numéro de téléphone valide.';
-              } else this.phone.error = '';
-            }
+                  ? $t('phone.error')
+                  : '')
           "
         />
         <p>{{ phone.error }}</p>
@@ -126,19 +115,19 @@
     </div>
     <div class="group">
       <div>
-        <label for="email">Email</label>
+        <label for="email">{{ $t("email.label") }}</label>
         <input
           type="email"
           name="email"
           id="email"
           v-model="email.value"
           @input="
-            (val) => {
-              // create error message if user input is not an email
-              if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.target.value)) {
-                this.email.error = 'Veuillez entrer un email valide.';
-              } else this.email.error = '';
-            }
+            (val) =>
+              (this.email.error = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+                val.target.value
+              )
+                ? $t('email.error')
+                : '')
           "
         />
         <p>{{ email.error }}</p>
@@ -146,7 +135,7 @@
     </div>
     <div class="group">
       <div>
-        <label for="message">Message (facultatif)</label>
+        <label for="message">{{ $t("message.label") }}</label>
         <textarea
           type="message"
           name="message"
@@ -157,10 +146,8 @@
               // prevent script injection
               val.target.value = val.target.value.replace(/[<>]/g, '');
               // create error is message is longer than 2000 characters
-              if (val.target.value.length > 2000) {
-                this.message.error =
-                  'Votre message doit faire moins de 2000 caractères.';
-              } else this.message.error = '';
+              this.message.error =
+                val.target.value.length > 2000 ? $t('message.error') : '';
             }
           "
         />
@@ -170,10 +157,10 @@
     <input
       v-if="this.loading === false"
       type="submit"
-      value="Envoyer la proposition d'accueil"
+      :value="$t('send')"
       @click="(e) => submitForm(e)"
     />
-    <input v-else type="submit" value="Envoi en cours..." />
+    <input v-else type="submit" :value="$t('sending')" />
     <p v-if="errorMessage">{{ errorMessage }}</p>
     <p v-if="successMessage" class="success">{{ successMessage }}</p>
   </form>
