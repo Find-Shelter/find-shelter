@@ -159,6 +159,12 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+Note that the project use [i18n for Vue](https://kazupon.github.io/vue-i18n/) for multi-languages managment. Each language has it own JSON file in the `front/src/locales` folder (en.json for english, fr.json for french, etc.).
+If you want to add content, please follow this instructions :
+
+1. Add you content in the locales JSON files (`front/src/locales`). Make sure you add the same structure of content in each JSON file, with the corresponding translation.
+2. In the component where you want the content to appear, please use `{{ $t('path.to.your.content.in.JSON.files') }}`.
+
 You can also join us on [Discord](https://discord.gg/bCEzJFc9Bc) if you want to communicate with us directly!
 
 <!-- LICENSE -->

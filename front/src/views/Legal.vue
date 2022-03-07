@@ -1,5 +1,11 @@
 <template>
-   <div>
-      <h1>Partie Légale</h1>
-   </div>
+  <div id="legal">
+    <h1>{{ $t("legal.title") }}</h1>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+#legal {
+  color: white;
+}
+</style>

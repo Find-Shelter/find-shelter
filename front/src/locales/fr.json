@@ -53,5 +53,8 @@
   },
   "send": "Envoyer la proposition d'accueil",
   "sending": "Envoi en cours...",
-  "housing": "Héberger"
+  "housing": "Héberger",
+  "legal": {
+    "title": "Partie légale"
+  }
 }

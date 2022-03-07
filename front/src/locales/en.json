@@ -53,5 +53,8 @@
     },
     "send": "Send the offer to be a host",
     "sending": "Sending...",
-    "housing": "Offer a place to stay"
+    "housing": "Offer a place to stay",
+    "legal": {
+        "title": "Legal"
+    }
 }
