@@ -1,26 +1,29 @@
 <template>
 	<div id="home">
 		<Disclaimer />
-		<div id="contactSection">
+		<Initiatives />
+		<!-- <div id="contactSection">
 			<ContactIntro />
 			<ContactActions />
 			<ContactForm />
-		</div>
+		</div> -->
 	</div>
 </template>
 
 <script>
 import Disclaimer from "../components/home/Disclaimer.vue";
-import ContactIntro from "../components/home/contact/ContactIntro.vue";
-import ContactActions from "../components/home/contact/ContactActions.vue";
-import ContactForm from "../components/home/contact/ContactForm.vue";
+import Initiatives from "../components/home/Initiatives.vue";
+// import ContactIntro from "../components/home/contact/ContactIntro.vue";
+// import ContactActions from "../components/home/contact/ContactActions.vue";
+// import ContactForm from "../components/home/contact/ContactForm.vue";
 
 export default {
 	components: {
 		Disclaimer,
-		ContactIntro,
-		ContactActions,
-		ContactForm,
+		Initiatives,
+		// ContactIntro,
+		// ContactActions,
+		// ContactForm,
 	},
 };
 </script>

@@ -1,7 +1,4 @@
 {
-  "nav": {
-    "host": "Héberger"
-  },
   "footer": {
     "main_1": "Ce project est",
     "main_2": "N'hésitez pas à constributer ou",
@@ -9,8 +6,8 @@
   },
   "headline": "Hébergement pour les Ukrainiens en France",
   "border_crossing": "En ce moment même, des milliers d'Ukrainiens franchissent leurs frontières mais ne savent pas où se rendre ensuite.<br>Si vous souhaitez aider, la meilleure façon de le faire est de <b>proposer tout ou partie de votre logement</b> 🏡.",
-  "welcome": "Si vous pouvez accueillir des personnes chez vous, n'hésitez à nous le faire savoir avec le formulaire qui suit 👇",
-  "ninety_days": "⚠️Les citoyens ukrainiens peuvent rester 90 jours dans l'espace Schengen.<br>Ils doivent ensuite demander un visa de résidence français.",
+  "welcome": "Si vous pouvez accueillir des personnes chez vous, n'hésitez à nous le faire savoir sur le site d'une ou plusieurs de ces initiatives 👇",
+  "ninety_days": "⚠️ Les citoyens ukrainiens peuvent rester 90 jours dans l'espace Schengen.<br>Ils doivent ensuite demander un visa de résidence français.",
   "data_protection": "🗂 Vos données seront strictement utilisées pour vous contacter et fournies aux associations capables de vous mettre en relation avec une (ou plusieurs) personnes ukrainiennes.",
   "offer_housing": "Proposez un hébergement",
   "rooms": "Remplissez ce formulaire pour proposer une (ou plusieurs) chambres aux réfugiés qui en ont besoin 🤝.",
