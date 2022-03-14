@@ -1,7 +1,6 @@
 <template>
   <header>
     <router-link to="/">Find Shelter 🇺🇦</router-link>
-    <!-- <a href="#contactSection">{{ $t("nav.host") }}</a> -->
     <LocaleSwitcher />
   </header>
 </template>

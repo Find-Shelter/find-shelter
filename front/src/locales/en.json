@@ -1,11 +1,8 @@
 {
-    "nav": {
-        "host": "Housing"
-    },
     "footer": {
-        "main_1": "This project is",
-        "main_2": "You can contribute or",
-        "link": "suggest improvments."
+        "main": "This project is {url1}. You can contribute or {url2}.",
+        "url1": "Open source",
+        "url2": "suggest improvments"
     },
     "headline": "Housing for Ukrainians in France",
     "border_crossing": "In this very moment, thousands of Ukrainians are crossing their borders and don't know where to go next.<br>If you wish to help, the best way is to offer them <b>a roof to stay</b> 🏡.",
@@ -56,5 +53,8 @@
     "housing": "Offer a place to stay",
     "legal": {
         "title": "Legal"
+    },
+    "initiatives": {
+        "title": "Register your place on one of the following websites:"
     }
 }

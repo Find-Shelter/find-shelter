@@ -1,8 +1,8 @@
 {
   "footer": {
-    "main_1": "Ce project est",
-    "main_2": "N'hésitez pas à constributer ou",
-    "link": "suggérer des améliorations"
+    "main": "Ce project est {url1}. N'hésitez pas à constributer ou {url2}.",
+    "url1": "Open Source",
+    "url2": "suggérer des améliorations"
   },
   "headline": "Hébergement pour les Ukrainiens en France",
   "border_crossing": "En ce moment même, des milliers d'Ukrainiens franchissent leurs frontières mais ne savent pas où se rendre ensuite.<br>Si vous souhaitez aider, la meilleure façon de le faire est de <b>proposer tout ou partie de votre logement</b> 🏡.",
@@ -53,5 +53,8 @@
   "housing": "Héberger",
   "legal": {
     "title": "Partie légale"
+  },
+  "initiatives": {
+    "title": "Enregistrez votre logement sur un des sites suivants :"
   }
 }
