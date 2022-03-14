@@ -4,25 +4,37 @@
             "name": "Prykhystok",
             "url": "https://prykhystok.in.ua",
             "img": "member_ukr_parliament.svg",
-            "description": "Site créé à l'initiative d'un membre du Parlement Ukrainien"
+            "description": {
+                "fr": "Site créé à l'initiative d'un membre du Parlement Ukrainien",
+                "en": "Website created on the initiative of a member of the Ukrainian Parliament"
+            }
         },
         {
             "name": "EU4UA",
             "url": "https://www.eu4ua.org",
             "img": "eu4ua.png",
-            "description": "Site créé à l'initiative des fondateurs d'une statup dans le recrutement"
+            "description": {
+                "fr": "Site créé à l'initiative des fondateurs d'une startup dans le recrutement",
+                "en": "Website created by the founders of a startup in HR Tech"
+            }
         },
         {
             "name": "Je m'engage pour l'Ukraine",
             "url": "https://parrainage.refugies.info",
             "img": "refugies.webp",
-            "description": "Site créé par le gouvermement français pour l'accueil des réfugiés"
+            "description": {
+                "fr": "Site créé par le gouvernement français pour l'accueil des réfugiés",
+                "en": "Webite created by the french government for the reception of refugees"
+            }
         },
         {
             "name": "Airbnb",
             "url": "https://www.airbnb.org/help-ukraine",
             "img": "airbnb.png",
-            "description": "Programme spécial mis en place par Airbnb pour accueillir les réfugiés"
+            "description": {
+                "fr": "Programme spécial mis en place par Airbnb pour accueillir les réfugiés",
+                "en": "Special program set up by Airbnb for the reception of refugees "
+            }
         }
     ]
 }

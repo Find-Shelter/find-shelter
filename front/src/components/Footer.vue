@@ -1,17 +1,24 @@
 <template>
   <footer>
-    <p>
-      {{ $t("footer.main_1") }}
-      <a href="https://github.com/fabrahaingo/find-shelter" target="_blank"
-        >Open Source</a
-      >. {{ $t("footer.main_2") }}
-      <a href="mailto:suggestion@find-shelter.com">
-        {{ $t("footer.link") }}
-      </a>
-    </p>
+    <i18n-t keypath="footer.main" tag="p">
+      <template #url1>
+        <a href="https://github.com/fabrahaingo/find-shelter" target="_blank">{{
+          $t("footer.url1")
+        }}</a>
+      </template>
+      <template #url2>
+        <a href="mailto:suggestion@find-shelter.com" target="_blank">{{
+          $t("footer.url2")
+        }}</a>
+      </template>
+    </i18n-t>
     <p class="discord">
       <a href="https://discord.gg/bCEzJFc9Bc">
-        <img src="../../../img/logo_discord.png" alt="logo discord" target="_blank">
+        <img
+          src="../../../img/logo_discord.png"
+          alt="logo discord"
+          target="_blank"
+        />
       </a>
     </p>
   </footer>
@@ -22,10 +29,10 @@ footer {
   color: white;
   text-align: center;
 
-	a {
-		color: white;
-		font-weight: 700;
-	}
+  a {
+    color: white;
+    font-weight: 700;
+  }
 
   img {
     height: 4rem;
