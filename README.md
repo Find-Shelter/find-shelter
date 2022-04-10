@@ -132,6 +132,12 @@ Those informations will be passed on to associations and organizations that are 
 7. Open a separate terminal and enter this command:
 
    ```sh
+   cd ~/Desktop/find-shelter/front && npm run serve
+   ```
+
+8. Open another separate terminal and enter this command:
+
+   ```sh
    cd ~/Desktop/find-shelter/back && npm start
    ```
 
